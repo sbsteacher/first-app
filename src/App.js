@@ -8,14 +8,14 @@ import CoinTracker from './CoinTracker';
 
 function App() {
   return (
-    <Router>
+    
       <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="/todo" element={ <TodoApp/> } />
         <Route path="/movie" element={ <MovieApp/> } />
         <Route path="/coin" element={ <CoinTracker/> } />
       </Routes>
-    </Router>
+    
   );
 }
 
