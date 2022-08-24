@@ -10,13 +10,14 @@ import Exam4 from './Exam/Exam4';
 import Exam5 from './Exam/Exam5';
 import Exam6 from './Exam/Exam6';
 import TodoApp from './TodoApp';
+import MovieApp from './MovieApp';
 import CoinTracker from './CoinTracker';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <CoinTracker />
+  <App />
   </React.StrictMode>
 );
 

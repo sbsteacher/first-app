@@ -35,6 +35,22 @@ export default function CoinTracker() {
         });
     }, []);
 
+    const inputVal = () => {
+        if(value) {
+            let price = 0;
+            for(let i=0; i<coins.length; i++) {
+                const coin = coins[i];
+
+                if(coin.symbol === currentUnit) {
+                    price = coin.quotes.USD.price;
+                    break;
+                }
+            }
+            return hideDecimal(value / price, 6);
+        }
+        return '';
+    }
+
     return (
         <div>
             <h1>My Coins! ({coins.length})</h1>
@@ -91,13 +107,18 @@ export default function CoinTracker() {
                                     type="text"         
                                     disabled                         
                                     onChange={ onChange }
+                                    value={ inputVal() }
+                                    /*
                                     value={
                                         value 
                                         ? hideDecimal(
-                                            value / coins.filter(coin => coin.symbol === currentUnit)[0].quotes.USD.price, 6
+                                            value / coins.filter(coin => {
+                                                return coin.symbol === currentUnit;
+                                            })[0].quotes.USD.price, 6
                                         )
                                         : ''
                                     }
+                                    */
                                 />
                                 <span className="unit">{ currentUnit }</span>
                                 <button onClick={() => setValue('')}>Clear</button>
